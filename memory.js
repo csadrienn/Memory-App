@@ -20,7 +20,7 @@ let turnedCard2 = null;
 // Hides the start menu and display the cards and the info bar
 function startGame() {
   totalShown = document.querySelector('input[name="total-cards"]:checked').value;
-  document.getElementById("start-window").classList.toggle("shown");
+  document.getElementById("start-window").classList.toggle("hidden");
   document.querySelector(".wins").innerText = statistic.wins;
   startTimer();
   swapCards();
@@ -42,11 +42,13 @@ function swapCards() {
 
 // Shows the cards in the game area and the info bar
 function showGame() {
-  const cardContainers = document.querySelectorAll(".card-container");
+  const cardArea = document.querySelector(".card-area");
+  const cardContainers = cardArea.querySelectorAll(".card-container");
+  cardArea.classList.add(`total-${totalShown}`);
   for (let i = 0; i < totalShown; i++) {
-    cardContainers[i].className = `card-container in-game total-${totalShown}`;
+    cardContainers[i].className = `card-container in-game`;
   }
-  document.getElementById("info-bar").classList.toggle("hidden");
+  document.getElementById("info-bar").classList.remove("hidden");
 }
 
 // Handles flips, case of pairs and win
@@ -122,22 +124,24 @@ function showWinner() {
   document.getElementById("card-total-best").innerText = totalShown;
   document.getElementById("steps-final").innerText = statistic.steps;
   document.getElementById("time-final").innerText = document.getElementById("time").innerText;
-  document.getElementById("ending-window").classList.toggle("shown");
-  document.getElementById("info-bar").classList.toggle("hidden");
+  document.getElementById("ending-window").classList.toggle("hidden");
+  document.getElementById("info-bar").classList.add("hidden");
 }
 
 //restore the card order, time and steps and shows the start menu
 function resetGame() {
-  const cards = document.querySelectorAll(".card-container.in-game .card");
+  const cardArea = document.querySelector(".card-area");
+  const cards = cardArea.querySelectorAll(".card-container.in-game .card");
+  cardArea.className = "card-area";
   cards.forEach((card, index) => {
     card.children[1].firstElementChild.setAttribute("src", originalCardValues[index]);
     card.className = "card";
     card.parentElement.className = "card-container";
   });
 
-  document.getElementById("info-bar").classList.toggle("hidden");
-  document.getElementById("ending-window").classList.remove("shown");
-  document.getElementById("start-window").classList.add("shown");
+  document.getElementById("info-bar").classList.add("hidden");
+  document.getElementById("ending-window").classList.add("hidden");
+  document.getElementById("start-window").classList.remove("hidden");
   statistic.time = 0;
   statistic.steps = 0;
   document.getElementById("time").innerText = "0:00";

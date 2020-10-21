@@ -351,51 +351,57 @@
             </div>
           </div>
         </div>
+        <div id="start-window" class="menu-window start-menu">
+          <div class="menu-content">
+            <h2>Let's play!</h2>
 
-        <div id="info-bar" class="info-bar hidden">
+            <form class="radios">
+              <p>Number of cards:</p>
+              <div class="options">
+                <input type="radio" id="12" name="total-cards" value="12" checked />
+                <label for="12">12</label>
+                <input type="radio" id="20" name="total-cards" value="20" />
+                <label for="20">20</label>
+                <input type="radio" id="30" name="total-cards" value="30" />
+                <label for="30">30</label>
+                <input type="radio" id="42" name="total-cards" value="42" />
+                <label for="42">42</label>
+              </div>
+            </form>
+            <button id="start-btn" class="btn large">Start</button>
+          </div>
+        </div>
+        <div id="ending-window" class="menu-window ending-menu hidden">
+          <div class="menu-content">
+            <h2>You Win!</h2>
+            <div class="results">
+              <p>Time:<span id="time-final">0:00</span></p>
+              <p>Steps:<span id="steps-final">0</span></p>
+              <p>Wins:<span class="wins-final">0</span></p>
+            </div>
+            <button id="new-game-btn" class="btn medium">New Game</button>
+            <div class="results">
+              <h3>In <span id="card-total-best">12</span> cards game:</h3>
+              <p>Best time: <span id="time-best"></span></p>
+              <p>Best steps: <span id="steps-best"></span></p>
+            </div>
+            <button id="reset-btn" class="btn medium">Reset Stats</button>
+          </div>
+        </div>
+      </div>
+      <div id="info-bar" class="info-bar hidden">
+        <div class="infos">
           <p>Wins:<span class="wins">0</span></p>
           <p>Time:<span id="time">0:00</span></p>
           <p>Steps:<span id="steps">0</span></p>
+        </div>
+        <div class="control">
           <button id="pause-btn" class="btn small">Pause</button>
           <button id="restart-btn" class="btn small">Restart</button>
         </div>
-
-        <div id="start-window" class="menu-window start-menu shown">
-          <h2>Let's play!</h2>
-
-          <form class="radios">
-            <p>Number of cards:</p>
-            <div class="options">
-              <input type="radio" id="12" name="total-cards" value="12" checked />
-              <label for="12">12</label>
-              <input type="radio" id="20" name="total-cards" value="20" />
-              <label for="20">20</label>
-              <input type="radio" id="30" name="total-cards" value="30" />
-              <label for="30">30</label>
-              <input type="radio" id="42" name="total-cards" value="42" />
-              <label for="42">42</label>
-            </div>
-          </form>
-          <button id="start-btn" class="btn large">Start</button>
-        </div>
-
-        <div id="ending-window" class="menu-window ending-menu">
-          <h2>You Win!</h2>
-          <div class="results">
-            <p>Time:<span id="time-final">0:00</span></p>
-            <p>Steps:<span id="steps-final">0</span></p>
-            <p>Wins:<span class="wins-final">0</span></p>
-          </div>
-          <button id="new-game-btn" class="btn medium">New Game</button>
-          <div class="results">
-            <h3>In <span id="card-total-best">12</span> cards game:</h3>
-            <p>Best time: <span id="time-best"></span></p>
-            <p>Best steps: <span id="steps-best"></span></p>
-          </div>
-          <button id="reset-btn" class="btn medium">Reset Stats</button>
-        </div>
       </div>
-      <script src="memory.js"></script>
     </div>
+
+    <script src="memory.js"></script>
   </body>
 </html>
