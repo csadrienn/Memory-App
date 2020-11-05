@@ -202,11 +202,11 @@ p {
 
 .info-bar .infos p {
   margin: 0 1rem;
-  width: 23%;
+  min-width: 23%;
 }
 
 .info-bar .infos p:nth-child(2) {
-  width: 32%;
+  min-width: 32%;
 }
 
 .info-bar .infos p span {
